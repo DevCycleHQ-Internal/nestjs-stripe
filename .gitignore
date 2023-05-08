@@ -1,6 +1,5 @@
 ### Project Specific ###
 coverage/
-lib/
 
 ### Linux ###
 *~
@@ -169,6 +168,7 @@ GitHub.sublime-settings
 
 ### VisualStudioCode ###
 .vscode/*
+.idea/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
