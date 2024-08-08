@@ -6,7 +6,7 @@ import { getStripeClient } from './../util';
 
 export function createStripeProvider(options: StripeOptions): Provider<Stripe> {
   return {
-    provide: stripeToken,
+    provide: options.name ?? stripeToken,
     useValue: getStripeClient(options),
   };
 }

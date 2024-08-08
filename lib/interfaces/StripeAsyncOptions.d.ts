@@ -5,5 +5,6 @@ export interface StripeAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
     inject?: any[];
     useClass?: Type<StripeOptionsFactory>;
     useExisting?: Type<StripeOptionsFactory>;
+    name?: string;
     useFactory?: (...args: any[]) => Promise<StripeOptions> | StripeOptions;
 }

@@ -24,7 +24,7 @@ export class StripeCoreModule {
   static forRootAsync(options: StripeAsyncOptions): DynamicModule {
     const stripeProvider: Provider = {
       inject: [stripeModuleOptions],
-      provide: stripeToken,
+      provide: options.name ?? stripeToken,
       useFactory: (stripeOptions: StripeOptions) =>
         getStripeClient(stripeOptions),
     };
