@@ -1,1 +1,1 @@
-export declare const stripeModuleOptions = "StripeModuleOptions";
+export declare const getModuleOptionsToken: (name?: string) => string;

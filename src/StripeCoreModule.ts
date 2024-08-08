@@ -1,5 +1,5 @@
 import { DynamicModule, Global, Module, Provider } from '@nestjs/common';
-import { stripeModuleOptions, stripeToken } from './constants';
+import { getModuleOptionsToken, stripeToken } from './constants';
 import {
   StripeAsyncOptions,
   StripeOptions,
@@ -23,7 +23,7 @@ export class StripeCoreModule {
 
   static forRootAsync(options: StripeAsyncOptions): DynamicModule {
     const stripeProvider: Provider = {
-      inject: [stripeModuleOptions],
+      inject: [getModuleOptionsToken(options.name)],
       provide: options.name ?? stripeToken,
       useFactory: (stripeOptions: StripeOptions) =>
         getStripeClient(stripeOptions),
@@ -57,14 +57,14 @@ export class StripeCoreModule {
     if (options.useFactory) {
       return {
         inject: options.inject || [],
-        provide: stripeModuleOptions,
+        provide: getModuleOptionsToken(options.name),
         useFactory: options.useFactory,
       };
     }
 
     return {
       inject: [options.useExisting || options.useClass],
-      provide: stripeModuleOptions,
+      provide: getModuleOptionsToken(options.name),
       useFactory: (optionsFactory: StripeOptionsFactory) =>
         optionsFactory.createStripeOptions(),
     };
