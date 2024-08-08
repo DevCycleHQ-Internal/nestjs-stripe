@@ -4,13 +4,14 @@
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "module": "esnext",
+    "module": "node16",
+    "esModuleInterop": true,
     "outDir": "./lib",
     "removeComments": true,
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "resolveJsonModule": true,
     "sourceMap": true,
-    "lib": ["es2017", "dom"],
+    "lib": ["es2020", "dom"],
     "target": "esnext"
   },
   "exclude": ["node_modules"]
